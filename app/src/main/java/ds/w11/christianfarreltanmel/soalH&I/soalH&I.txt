@@ -1,0 +1,7 @@
+SoalH:
+BFS and Pre-order would visit the tree nodes in the same order if the tree is linear or the three is no more than 1 level for example root A is connected to leaf B C D E F G
+
+SoalI:
+A. O(n) because we only print the directory names
+B. O(n+N) because the traversal must visit each node files then the node's name
+C. O(N) because N=Omega(n) means that the number of files grows at least as fast as the number of directories
