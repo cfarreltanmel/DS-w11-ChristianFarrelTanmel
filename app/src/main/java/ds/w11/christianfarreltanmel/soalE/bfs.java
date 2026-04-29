@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class bfs {
-    public static List<String> breadthFirstTraversal(TreeNode root) {
+    public static List<String> breadthFirstTraversalLeaf(TreeNode root) {
         List<String> result = new ArrayList<>();
         if (root == null) {
             return result;
@@ -13,7 +13,9 @@ public class bfs {
         queue.add(root);
         while (!queue.isEmpty()) {
             TreeNode currentNode = queue.remove(0);
-            result.add(currentNode.value);
+            if (currentNode.leftChild == null && currentNode.rightChild == null) {
+                result.add(currentNode.value);
+            }
             if (currentNode.leftChild != null) {
                 queue.add(currentNode.leftChild);
             }
