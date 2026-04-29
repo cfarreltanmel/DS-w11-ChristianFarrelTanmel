@@ -2,34 +2,36 @@ package ds.w11.christianfarreltanmel.soalF;
 
 import java.util.List;
 import java.util.Scanner;
-import static ds.w11.christianfarreltanmel.soalF.dfs.depthFirstTraversal;
+import static ds.w11.christianfarreltanmel.bfs.breadthFirstTraversalLevel;
+import ds.w11.christianfarreltanmel.treeNode;
 
 public class soalF {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode("A");
-        root.leftChild = new TreeNode("B");
-        root.rightChild = new TreeNode("C");
-        root.leftChild.leftChild = new TreeNode("D");
-        root.leftChild.rightChild = new TreeNode("E");
-        root.rightChild.leftChild = new TreeNode("F");
-        root.rightChild.rightChild = new TreeNode("G");
+        treeNode root = new treeNode("A");
+        root.leftChild = new treeNode("B");
+        root.rightChild = new treeNode("C");
+        root.leftChild.leftChild = new treeNode("D");
+        root.leftChild.rightChild = new treeNode("E");
+        root.rightChild.leftChild = new treeNode("F");
+        root.rightChild.rightChild = new treeNode("G");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the tree level you want to print: ");
+        System.out.println("Input the tree level you want to print: ");
         int level = scanner.nextInt();
-
-        List<String> result = depthFirstTraversal(root);
-        System.out.println(result);
-    }
-}
-
-class TreeNode {
-    String value;
-    TreeNode leftChild;
-    TreeNode rightChild;
-
-    TreeNode(String value) {
-        this.value = value;
-        this.leftChild = null;
-        this.rightChild = null;
+        if (level == 0) {
+            System.out.println(root.value);
+        } else {
+            List<String> result = breadthFirstTraversalLevel(root);
+            int startIndex = (int) Math.pow(2, level) - 1;
+            int endIndex = (int) Math.pow(2, level + 1) - 2;
+            if (startIndex < result.size()) {
+                for (int i = startIndex; i <= endIndex && i < result.size(); i++) {
+                    System.out.print(result.get(i) + " ");
+                }
+                System.out.println();
+            } else {
+                System.out.println("Level " + level + " does not exist in the tree.");
+            }
+        }
+        scanner.close();
     }
 }

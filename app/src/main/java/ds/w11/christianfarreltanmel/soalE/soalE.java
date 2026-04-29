@@ -1,31 +1,21 @@
 package ds.w11.christianfarreltanmel.soalE;
 
+import ds.w11.christianfarreltanmel.treeNode;
+import static ds.w11.christianfarreltanmel.bfs.breadthFirstTraversalLeaf;
+
 import java.util.List;
-import static ds.w11.christianfarreltanmel.soalE.bfs.breadthFirstTraversalLeaf;
 
 public class soalE {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode("A");
-        root.leftChild = new TreeNode("B");
-        root.rightChild = new TreeNode("C");
-        root.leftChild.leftChild = new TreeNode("D");
-        root.leftChild.rightChild = new TreeNode("E");
-        root.rightChild.leftChild = new TreeNode("F");
-        root.rightChild.rightChild = new TreeNode("G");
+        treeNode root = new treeNode("A");
+        root.leftChild = new treeNode("B");
+        root.rightChild = new treeNode("C");
+        root.leftChild.leftChild = new treeNode("D");
+        root.leftChild.rightChild = new treeNode("E");
+        root.rightChild.leftChild = new treeNode("F");
+        root.rightChild.rightChild = new treeNode("G");
 
         List<String> result = breadthFirstTraversalLeaf(root);
         System.out.println(result);
-    }
-}
-
-class TreeNode {
-    String value;
-    TreeNode leftChild;
-    TreeNode rightChild;
-
-    TreeNode(String value) {
-        this.value = value;
-        this.leftChild = null;
-        this.rightChild = null;
     }
 }
